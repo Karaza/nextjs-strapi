@@ -1,11 +1,20 @@
-function Header() {
+import Navigation from 'components/Navigation';
+import Link from 'next/link';
+
+function Header({ navigation }) {
   return (
     <header>
       <div className="container">
         <div className="logo">
-          <img src="/images/logo.svg" alt="Sites logo" />
-          <span className="logo-text">Next Movies</span>
+          <Link href="/">
+            <a>
+              <img src="/images/logo.svg" alt="Sites logo" />
+              <span className="logo-text">Next Movies</span>
+            </a>
+          </Link>
         </div>
+
+        <Navigation navigation={navigation} />
       </div>
       <style jsx>{`
         header {
@@ -13,9 +22,16 @@ function Header() {
           padding: 20px;
         }
 
-        .logo {
+        .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo a {
           display: flex;
           align-items: center;
+          text-decoration: none;
         }
 
         .logo-text {

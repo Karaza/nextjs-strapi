@@ -13,9 +13,9 @@ const Card = ({ movie }) => {
 
       <style jsx>{`
         .card {
-          width: 400px;
+          width: 340px;
           border: 1px solid #cccccc;
-          margin-top: 50px;
+          margin: 50px 20px 0;
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

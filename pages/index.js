@@ -4,11 +4,20 @@ const Home = ({ movies }) => {
   console.log(movies);
 
   return (
-    <>
-      {movies.map((movie) => (
-        <Card key={movie.id} movie={movie} />
-      ))}
-    </>
+    <div className="container">
+      <div className="listing">
+        {movies.map((movie) => (
+          <Card key={movie.id} movie={movie} />
+        ))}
+      </div>
+      <style jsx>{`
+        .listing {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      `}</style>
+    </div>
   );
 };
 
