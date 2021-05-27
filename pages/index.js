@@ -1,9 +1,28 @@
-import styles from '../styles/Home.module.css';
+import Card from 'components/Card';
 
-export default function Home() {
+const Home = ({ movies }) => {
+  console.log(movies);
+
   return (
-    <div className={styles.container}>
-      <h1>This is our front page</h1>
-    </div>
+    <>
+      {movies.map((movie) => (
+        <Card key={movie.id} movie={movie} />
+      ))}
+    </>
   );
+};
+
+export async function getServerSideProps() {
+  const { API_URL } = process.env;
+
+  const res = await fetch(`${API_URL}/movies`);
+  const data = await res.json();
+
+  return {
+    props: {
+      movies: data,
+    },
+  };
 }
+
+export default Home;
