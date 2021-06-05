@@ -1,7 +1,7 @@
 import Navigation from 'components/Navigation';
 import Link from 'next/link';
 
-function Header({ navigation }) {
+function Header() {
   return (
     <header>
       <div className="container">
@@ -14,7 +14,7 @@ function Header({ navigation }) {
           </Link>
         </div>
 
-        <Navigation navigation={navigation} />
+        <Navigation />
       </div>
       <style jsx>{`
         header {

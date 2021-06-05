@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import HeaderContext from '../contexts/HeaderContext';
 
-const Navigation = ({ navigation }) => {
+const Navigation = () => {
   const router = useRouter();
   console.log(router);
+  const { menuItems } = useContext(HeaderContext);
 
   return (
     <>
       <nav>
         <ul>
-          {navigation.map((item) => (
+          {menuItems.map((item) => (
             <li key={item.id}>
               <Link href={item.slug}>
                 <a className={router.pathname === item.slug ? 'active' : ''}>
