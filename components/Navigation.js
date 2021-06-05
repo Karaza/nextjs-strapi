@@ -6,7 +6,7 @@ import HeaderContext from '../contexts/HeaderContext';
 const Navigation = () => {
   const router = useRouter();
   console.log(router);
-  const { menuItems } = useContext(HeaderContext);
+  const { menuItems, color } = useContext(HeaderContext);
 
   return (
     <>
@@ -15,7 +15,10 @@ const Navigation = () => {
           {menuItems.map((item) => (
             <li key={item.id}>
               <Link href={item.slug}>
-                <a className={router.pathname === item.slug ? 'active' : ''}>
+                <a
+                  className={router.pathname === item.slug ? 'active' : ''}
+                  style={color ? { color: '#4C9EE3' } : { color: '#000000' }}
+                >
                   {item.title}
                 </a>
               </Link>
@@ -36,13 +39,12 @@ const Navigation = () => {
         }
         a {
           text-decoration: none;
-          color: '#4C9EE3';
         }
         a:hover {
           text-decoration: underline;
         }
         .active {
-          color: #ef6800;
+          color: #ef6800 !important;
         }
       `}</style>
     </>

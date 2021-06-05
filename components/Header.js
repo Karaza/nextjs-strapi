@@ -1,5 +1,6 @@
 import Navigation from 'components/Navigation';
 import Link from 'next/link';
+import ToggleNavigationColorButton from 'components/ToggleNavigationColorButton';
 
 function Header() {
   return (
@@ -15,6 +16,7 @@ function Header() {
         </div>
 
         <Navigation />
+        <ToggleNavigationColorButton />
       </div>
       <style jsx>{`
         header {
