@@ -1,21 +1,34 @@
 import getConfig from 'next/config';
+import { NextSeo } from 'next-seo';
 
 const Movie = ({ movie }) => {
   console.log(movie);
 
-  return (
-    <div className="container">
-      <h2>{movie.title}</h2>
-      <div>
-        <p dangerouslySetInnerHTML={{ __html: movie.description }} />
-      </div>
+  const SEO = {
+    title: `Next Movies | ${movie.title}`,
+    description: movie.description,
+    openGraph: {
+      title: `Next Movies | ${movie.title}`,
+      description: movie.description,
+    },
+  };
 
-      <style jsx>{`
-        h2 {
-          margin: 1rem 0;
-        }
-      `}</style>
-    </div>
+  return (
+    <>
+      <NextSeo {...SEO} />
+      <div className="container">
+        <h2>{movie.title}</h2>
+        <div>
+          <p dangerouslySetInnerHTML={{ __html: movie.description }} />
+        </div>
+
+        <style jsx>{`
+          h2 {
+            margin: 1rem 0;
+          }
+        `}</style>
+      </div>
+    </>
   );
 };
 

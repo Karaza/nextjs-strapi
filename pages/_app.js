@@ -1,12 +1,15 @@
 import '../styles/global.css';
 import Header from 'components/Header';
 import getConfig from 'next/config';
+import { DefaultSeo } from 'next-seo'
+import SEO from '../next-seo.config'
 
 function MyApp({ Component, pageProps, navigation }) {
   console.log(navigation);
 
   return (
     <>
+    <DefaultSeo {...SEO} />
       <Header navigation={navigation} />
       <Component {...pageProps} />
     </>
